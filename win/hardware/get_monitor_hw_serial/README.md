@@ -1,0 +1,1 @@
+Get connected monitor name (model) and serial no.
