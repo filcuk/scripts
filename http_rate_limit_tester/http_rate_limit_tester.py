@@ -26,6 +26,7 @@ URL\t{URL}
 Limit\tx{n}
 Min\t#{t.index(min(t))+1} took {format(min(t) * 1000.0, '.5f')}ms
 Max\t#{t.index(max(t))+1} took {format(max(t) * 1000.0, '.5f')}ms
+Avg\t{format(sum(t) / len(t) * 1000.0, '.5f')}ms
 ''')
     
-throttling_test(110)
+throttling_test(5)
