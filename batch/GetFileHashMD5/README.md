@@ -1,0 +1,1 @@
+Drag & Drop file on top to generate MD5 hash.
