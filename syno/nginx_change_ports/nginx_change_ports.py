@@ -4,24 +4,25 @@ import time
 
 print("Start OK")
 
-HTTP_PORT=81
-HTTPS_PORT=444
-
 NGINX = "/usr/syno/share/nginx"
 MUSTACHE = ["DSM.mustache","server.mustache","WWWService.mustache"]
 BACKUP_FILES = True # change to false to disable backups
-BACKUP_DIR = "/volume1/sw/nginx/backup"
+BACKUP_DIR = "/volume1/docker/nginx/backup"
 DELETE_OLD_BACKUPS = True # change to true to automatically delete old backups.
 KEEP_BACKUP_DAYS = 30
 DATE = time.strftime("%Y-%m-%d_%H-%M-%S")
 CURRENT_BACKUP_DIR = os.path.join(BACKUP_DIR,DATE)
+NEW_HTTP_PORT=79
+OLD_HTTP_PORT=80
+NEW_HTTPS_PORT=444
+OLD_HTTPS_PORT=443
 
 for file in MUSTACHE:
     if BACKUP_FILES:
         os.makedirs(CURRENT_BACKUP_DIR, exist_ok=True)
         shutil.copy(os.path.join(NGINX,file),CURRENT_BACKUP_DIR)
         print("Backup Done")
-    data = open(os.path.join(NGINX,file), 'rt').read().replace('listen 80', 'listen 81').replace('listen [::]:80','listen [::]:81').replace('listen 443','listen 444').replace('listen [::]:443', 'listen [::]:444')
+    data = open(os.path.join(NGINX,file), 'rt').read().replace('listen 80',f'listen {NEW_HTTP_PORT}').replace('listen [::]:80',f'listen [::]:{NEW_HTTP_PORT}').replace('listen 443',f'listen {NEW_HTTPS_PORT}').replace('listen [::]:443', F'listen [::]:{NEW_HTTPS_PORT}')
     open(os.path.join(NGINX,file), 'wt').write(data)
 print("Mod Done")
 
