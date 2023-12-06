@@ -1,0 +1,3 @@
+[submodule "tsql/RajendraScripts"]
+	path = tsql/RajendraScripts
+	url = https://github.com/rajendragp/RajendraScripts
