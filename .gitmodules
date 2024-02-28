@@ -1,3 +1,6 @@
 [submodule "tsql/RajendraScripts"]
 	path = tsql/RajendraScripts
 	url = https://github.com/rajendragp/RajendraScripts
+[submodule "power_shell/PowerBI-Developer-Samples"]
+	path = power_shell/PowerBI-Developer-Samples
+	url = https://github.com/microsoft/PowerBI-Developer-Samples.git
