@@ -3,8 +3,7 @@
 # ---------------------------------------------------------
 # Trigger a dataset refresh in service
 #
-# Created:  2024-10-04, filip.kraus@xpo.com
-# Updated:  2024-10-04, filip.kraus@xpo.com
+# Created:  2024-10-04, filipkraus.net
 # #########################################################
 
 cls
